@@ -6,6 +6,133 @@
   <title>DevilCraft</title>
 
 <style>
+
+.logout-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+
+  background: linear-gradient(90deg, #b91c1c, #ff2d2d);
+  color: #120202;
+
+  box-shadow: 0 0 12px rgba(255, 45, 45, 0.45);
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 0 18px rgba(255, 45, 45, 0.8),
+    0 0 30px rgba(255, 45, 45, 0.4);
+  filter: brightness(1.2);
+}
+
+.logout-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 10px rgba(255, 45, 45, 0.6) inset;
+}
+
+.register-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.register-card {
+  width: 420px;
+  background: rgba(0,0,0,0.55);
+  border-radius: 14px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 0 25px rgba(255,45,45,0.35);
+  text-align: center;
+  animation: fadeUp 0.8s ease;
+}
+
+.register-logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.register-card h2 {
+  color: #ff2d2d;
+  margin-bottom: 20px;
+}
+
+.register-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: #fff;
+  outline: none;
+}
+
+.pass-row {
+  display: flex;
+  gap: 10px;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(90deg, #b91c1c, #ff2d2d);
+  color: black;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255,45,45,0.7);
+}
+
+.login-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.login-text span {
+  color: #ff2d2d;
+  cursor: pointer;
+}
+
+.discord-box iframe {
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: discordShow 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes discordShow {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* بداية: نخلي iframe مخفي ومتصغر */
 .discord-center iframe {
   opacity: 0;
@@ -269,43 +396,95 @@ footer a img {
 </head>
 <body>
 
+  
 
 
-<body>
-  <div class="discord-center">
-    <iframe src="https://discord.com/widget?id=1396493307194114118&theme=dark"
-        width="350"
-        height="500"
-        allowtransparency="true"
-        frameborder="0"
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-    </iframe>
+  <div class="register-wrapper">
+  <div class="register-card">
+  <img src="https://i.ibb.co/S4fMZm0r/devil11.png" class="register-logo">
+
+  <h2>Register</h2>
+
+  <!-- هنا نضيف div للرسائل فوق كلمة Register -->
+  <div id="register-message" style="color:red; font-weight:bold; margin-bottom:10px; display:none;"></div>
+
+  <input id="username" type="text" placeholder="Username">
+  <input id="email" type="email" placeholder="Email">
+
+  <div class="pass-row">
+    <input id="password" type="password" placeholder="Password">
+    <input id="confirm" type="password" placeholder="Confirm Password">
   </div>
-</body>
+
+  <button class="register-btn" onclick="register()">Register</button>
+
+  <p class="login-text">
+    Do you have an account? <span>Login</span>
+  </p>
+</div>
+
+
+</div>
+  
+
+
+<div class="discord-center">
+  <iframe src="https://discord.com/widget?id=1416668252595163168&theme=dark"
+    width="350" height="500"></iframe>
+</div>
+
+  
+  
+
+
+
 
 
   <div class="nav" id="navbar">
-    <div class="brand">
-      <div class="logo">
-        <img src="https://i.ibb.co/S4fMZm0r/devil11.png" alt="DevilCraft Logo" style="width:200%;height:100%;border-radius:8px;object-fit:cover;">
-      </div>
-      <div style="display:flex;flex-direction:column">
-        <div style="font-weight:800">DevilCraft</div>
-        <div style="font-size:12px;color:var(--muted)">Other Members</div>
-      </div>
+  <div class="brand">
+    <div class="logo">
+      <img src="https://i.ibb.co/S4fMZm0r/devil11.png" alt="DevilCraft Logo" style="width:200%;height:100%;border-radius:8px;object-fit:cover;">
     </div>
-  <div class="minecraft-logo">
-  <img src="https://i.imgur.com/akNHcaO.png" alt="Minecraft Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
-</div>
-
-   
-
-      <div class="lang-toggle" aria-hidden="false">
-        <div id="btn-ar" class="lang-btn" title="Arabic">AR</div>
-        <div id="btn-en" class="lang-btn active" title="English">EN</div>
-      </div>
+    <div style="display:flex;flex-direction:column">
+      <div style="font-weight:800">DevilCraft</div>
+      <div style="font-size:12px;color:var(--muted)">Other Members</div>
     </div>
   </div>
+
+  <div class="minecraft-logo">
+    <img src="https://i.imgur.com/akNHcaO.png" alt="Minecraft Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+  </div>
+
+  <div style="display:flex;align-items:center;gap:18px">
+
+    <!-- الروابط -->
+    <div class="nav-links">
+      <a href="https://osamagamer50.github.io/gg/" target="_blank" data-i18n="otherMembers">Other Members</a> 
+      <a href="#join" data-i18n="joinUs">Join Us</a>
+      <a href="#explore" data-i18n="explore">Explore</a>
+      <a href="#contact" data-i18n="contact">Contact Us</a>
+    </div>
+
+    <!-- فوتر المستخدم جنب Contact Us -->
+
+
+
+
+
+<div id="navbar-user" style="display:flex;align-items:center;gap:10px;color:white;">
+      <img id="navbar-user-photo" src="" alt="User Photo" style="width:40px;height:40px;border-radius:50%;display:none;">
+      <span id="navbar-user-name" style="display:none;font-weight:600;"></span>
+      <button id="logout-btn" class="logout-btn" style="margin-left:10px;display:none;">Logout</button>
+    </div>
+    <!-- أزرار اللغة -->
+    <div class="lang-toggle" aria-hidden="false">
+      <div id="btn-ar" class="lang-btn" title="Arabic">AR</div>
+      <div id="btn-en" class="lang-btn active" title="English">EN</div>
+    </div>
+
+  </div>
+</div>
+
    
   
 
@@ -387,7 +566,9 @@ footer a img {
     // translations
     const i18n = {
       en: {
-
+        otherMembers: 'Other Members',
+        joinUs: 'Join Us',
+        explore: 'Explore',
         contact: 'Contact Us',
         title: 'Join the DevilCraft Team',
         subtitle: "We are looking for exceptional talents in content creation. Whether you're a YouTuber or streamer, there's a place for you!",
@@ -454,15 +635,148 @@ footer a img {
   // 🔹 تعديل موضع لوجو ماينكرافت حسب اللغة
   const mcLogo = document.querySelector('.minecraft-logo');
   if(lang === 'ar'){
-    mcLogo.style.marginLeft = '50px';   // ← أقرب لليسار
+    mcLogo.style.marginLeft = '-340px';   // ← أقرب لليسار
     mcLogo.style.transition = 'margin 0.4s ease';
   } else {
-    mcLogo.style.marginLeft = '-60px';  // ← الوضع الافتراضي بالإنجليزية
+    mcLogo.style.marginLeft = '230px';  // ← الوضع الافتراضي بالإنجليزية
   }
 
   localStorage.setItem('devilcraft_lang', lang);
 }
 
   </script>
+  <div id="footer-user" style="display:flex;align-items:center;gap:10px;margin-top:10px;color:white;">
+  <img id="footer-user-photo" src="" alt="User Photo" style="width:40px;height:40px;border-radius:50%;display:none;">
+  <span id="footer-user-name" style="display:none;"></span>
+</div>
+
+<script type="module">
+  // … كود Firebase و register() …
+
+  // كود الفوتر
+  const navbarUserDiv = document.getElementById('navbar-user');
+const navbarUserPhoto = document.getElementById('navbar-user-photo');
+const navbarUserName = document.getElementById('navbar-user-name');
+
+
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById("user-name").textContent =
+      user.displayName || user.email;
+  }
+});
+
+
+</script>
+
+
+<script type="module">
+import { updateProfile } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA3UScTAsMLju0IyJXAZaVrdedpMHx7loY",
+  authDomain: "devilbox-4613c.firebaseapp.com",
+  projectId: "devilbox-4613c",
+  storageBucket: "devilbox-4613c.appspot.com",
+  messagingSenderId: "369333804017",
+  appId: "1:369333804017:web:dec93caeb0347c58400250"
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getFirestore();
+
+const userInfoDiv = document.getElementById('user-info');
+const userPhoto = document.getElementById('user-photo');
+const userName = document.getElementById('user-name');
+const logoutBtn = document.getElementById('logout-btn');
+
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+// راقب حالة تسجيل الدخول
+onAuthStateChanged(auth, (user) => {
+  const logoutBtn = document.getElementById('logout-btn');
+
+  if (user) {
+    logoutBtn.style.display = 'inline-block';
+  } else {
+    logoutBtn.style.display = 'none';
+  }
+});
+
+// زر تسجيل الخروج
+logoutBtn.onclick = async () => {
+  await signOut(auth);
+};
+
+
+// زر تسجيل الخروج
+logoutBtn.onclick = async () => {
+  await signOut(auth);
+};
+
+
+window.register = async function () {
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirm = document.getElementById("confirm").value;
+  const messageDiv = document.getElementById("register-message");
+
+  // امسح الرسالة القديمة
+  messageDiv.style.display = "none";
+  messageDiv.textContent = "";
+
+  if (password !== confirm) {
+    messageDiv.style.display = "block";
+    messageDiv.textContent = "Passwords do not match ❌";
+    return;
+  }
+
+  try {
+    const userCred = await createUserWithEmailAndPassword(auth, email, password);
+
+    await updateProfile(userCred.user, { displayName: username });
+
+    await setDoc(doc(db, "users", userCred.user.uid), {
+      username,
+      email,
+      createdAt: new Date()
+    });
+
+    messageDiv.style.color = "green";
+    messageDiv.style.display = "block";
+    messageDiv.textContent = "Registered successfully ✅";
+
+  } catch (err) {
+    messageDiv.style.color = "red";
+    messageDiv.style.display = "block";
+
+    if (err.code === "auth/email-already-in-use") {
+      messageDiv.textContent = "This email is already registered ❌";
+    } else if (err.code === "auth/invalid-email") {
+      messageDiv.textContent = "Please enter a valid email ❌";
+    } else if (err.code === "auth/weak-password") {
+      messageDiv.textContent = "Password is too weak ❌";
+    } else {
+      messageDiv.textContent = "Unexpected error: " + err.message;
+    }
+  }
+};
+
+
+</script>
+<div id="user-info" style="position:fixed;top:20px;right:20px;color:white;display:none;align-items:center;gap:10px;">
+  <span id="user-name"></span>
+  <button id="logout-btn" class="logout-btn">Logout</button>
+
+</div>
+
+
 </body>
 </html>
